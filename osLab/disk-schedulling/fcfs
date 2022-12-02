@@ -1,0 +1,34 @@
+#include<stdio.h>
+
+int main()
+{
+    int disk[100]={0};
+    int head,area;
+    printf("\nenter the number of head in the disk....");
+    scanf("%d",&head);
+    printf("\nenter the area values in the disk....");
+    scanf("%d",&area);
+    for (int i = 0; i < area; i++) {
+        scanf("%d",&disk[i]);
+    }
+    int i=1,sum=0;
+    int temp=disk[0],s=0;
+   while(i<area) {
+    //   printf("%d + %d - %d \n",sum,temp,head);
+       sum=sum+temp-head;
+       
+       temp=disk[i];
+       head=disk[i-1];
+       if(temp<head) {
+           s=temp;
+           temp=head;
+           head=s;
+       }
+       
+       i++;
+   }
+   sum=sum+(temp-head);
+//   printf("\n%d %d",temp,head);
+  printf("\n total seek time is : %d ",sum);
+   
+}
